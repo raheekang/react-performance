@@ -1,8 +1,8 @@
 # React-App 성능개선
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/03c5544c-5947-4cdc-bd14-812327a28014/Untitled.png)
+<img width="1296" alt="image" src="https://github.com/raheekang/react-performance/assets/134080499/d069dc1c-caf8-4ca6-9ccb-e4b559eb099b">
 
-![Untitled](React-App%20%E1%84%89%E1%85%A5%E1%86%BC%E1%84%82%E1%85%B3%E1%86%BC%E1%84%80%E1%85%A2%E1%84%89%E1%85%A5%E1%86%AB%20a254848ce528475286175149555ab049/Untitled%201.png)
+<img width="1231" alt="image" src="https://github.com/raheekang/react-performance/assets/134080499/ca6b0a5d-9e9e-42ff-82db-389ab591c1d5">
 
 <aside>
 📌 React Developer Tools
@@ -51,7 +51,7 @@ React.memo 적용은 간단하게 원하는 컴포넌트를 감싸주면 됨
 
 적용 후 profiler 확인 시 렌더링이 필요하지 않은 List, ListItem 컴포넌트는 렌더링이 안 되는 걸 확인 
 
-![Untitled](React-App%20%E1%84%89%E1%85%A5%E1%86%BC%E1%84%82%E1%85%B3%E1%86%BC%E1%84%80%E1%85%A2%E1%84%89%E1%85%A5%E1%86%AB%20a254848ce528475286175149555ab049/Untitled%202.png)
+<img width="732" alt="image" src="https://github.com/raheekang/react-performance/assets/134080499/9048e1fc-f91a-4db7-8dee-e4692513f2df">
 
 - B컴포넌트의 렌더링 속도가 향상한 것을 볼 수 있음
 
