@@ -4,36 +4,6 @@
 
 
 <aside>
-📌 React Developer Tools
-
-</aside>
-
-- React Profiler
-    
-    react profiler는 react 16.5에서 새로운 DevTools 프로파일러 플러그인에 대한 지원 추가 이 플러그인은 react의 profiler API를 사용하여 react 애플리케이션의 성능 병목 현상을 식별하기 위해 렌더링되는 각 구성요소에 대한 타이밍 정보를 수집
-    
-- useEffect
-    
-    컴포넌트가 렌더링 될 때 특정 작업을 실행할 수 있도록 하는 HOOK 여기서 app컴포넌트가 한번 렌더링 된 후에 jsonplaceholder라는 곳의 서버가 비동기 요청을 보내서 posts 데이터를 가져오기 위해서 사용 됨
-    
-    useEffect 는 **메모이제이션 된 함수를 반환하는 함수**
-    
-    적용 방법은 usecallback 안에 콜백함수와 의존성 배열을 순서대로 넣어주면 됨
-    
-- fetch() 메소드
-    
-    원격 API에 요청을 보내기 위해 사용할 수 있는 메소드
-    
-    전역 fetch() 메소드는 네트워크에서 리소스를 가져오는 프로세스를 시작하여 response 응답을 사용할 수 있게 되면 이행된 promise 약속을 return 반환합니다.
-    
-- jsonplaceholder
-    
-    JSONPlaceholder는 가짜 데이터가 필요할 때마다 사용할 수 있는 무료 온라인 REST API
-    
-    posts, users, photos 등 여러 가지 가짜 데이터를 가져올 수 있음
-    
-
-<aside>
 📌 React.memo 적용
 
 </aside>
@@ -60,3 +30,9 @@ React Memo 사용을 지양해야하는 상황
 - props가 자주 변하는 컴포넌트를 react.memo로 래핑 할지라도, react는 두 가지 작업을 리 렌더링 할 때마다 수행함
 
 📌 리액트에서 렌더링 성능을 최적화 위해선 react 컴포넌트를 분리하며, react.memo 를 사용하면 됨. 또한 react.memo 사용은 항상 좋은 것은 아니기에 profiler를 이용해서 성능상 이점이 있는지 확인 후 사용
+
+- jsonplaceholder
+    
+    JSONPlaceholder는 가짜 데이터가 필요할 때마다 사용할 수 있는 무료 온라인 REST API
+    
+    posts, users, photos 등 여러 가지 가짜 데이터를 가져올 수 있음
