@@ -31,6 +31,7 @@ React Memo 사용을 지양해야하는 상황
 
 📌 리액트에서 렌더링 성능을 최적화 위해선 react 컴포넌트를 분리하며, react.memo 를 사용하면 됨. 또한 react.memo 사용은 항상 좋은 것은 아니기에 profiler를 이용해서 성능상 이점이 있는지 확인 후 사용
 
+
 - jsonplaceholder
     
     JSONPlaceholder는 가짜 데이터가 필요할 때마다 사용할 수 있는 무료 온라인 REST API
