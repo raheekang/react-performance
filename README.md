@@ -1,8 +1,7 @@
 # React-App 성능개선
 
-<img width="1296" alt="image" src="https://github.com/raheekang/react-performance/assets/134080499/d069dc1c-caf8-4ca6-9ccb-e4b559eb099b">
-
 <img width="1231" alt="image" src="https://github.com/raheekang/react-performance/assets/134080499/ca6b0a5d-9e9e-42ff-82db-389ab591c1d5">
+
 
 <aside>
 📌 React Developer Tools
