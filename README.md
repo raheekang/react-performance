@@ -1,70 +1,63 @@
-# Getting Started with Create React App
+# React-App 성능개선
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![Untitled](React-App%20%E1%84%89%E1%85%A5%E1%86%BC%E1%84%82%E1%85%B3%E1%86%BC%E1%84%80%E1%85%A2%E1%84%89%E1%85%A5%E1%86%AB%20a254848ce528475286175149555ab049/Untitled.png)
 
-## Available Scripts
+![Untitled](React-App%20%E1%84%89%E1%85%A5%E1%86%BC%E1%84%82%E1%85%B3%E1%86%BC%E1%84%80%E1%85%A2%E1%84%89%E1%85%A5%E1%86%AB%20a254848ce528475286175149555ab049/Untitled%201.png)
 
-In the project directory, you can run:
+<aside>
+📌 React Developer Tools
 
-### `npm start`
+</aside>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- React Profiler
+    
+    react profiler는 react 16.5에서 새로운 DevTools 프로파일러 플러그인에 대한 지원 추가 이 플러그인은 react의 profiler API를 사용하여 react 애플리케이션의 성능 병목 현상을 식별하기 위해 렌더링되는 각 구성요소에 대한 타이밍 정보를 수집
+    
+- useEffect
+    
+    컴포넌트가 렌더링 될 때 특정 작업을 실행할 수 있도록 하는 HOOK 여기서 app컴포넌트가 한번 렌더링 된 후에 jsonplaceholder라는 곳의 서버가 비동기 요청을 보내서 posts 데이터를 가져오기 위해서 사용 됨
+    
+    useEffect 는 **메모이제이션 된 함수를 반환하는 함수**
+    
+    적용 방법은 usecallback 안에 콜백함수와 의존성 배열을 순서대로 넣어주면 됨
+    
+- fetch() 메소드
+    
+    원격 API에 요청을 보내기 위해 사용할 수 있는 메소드
+    
+    전역 fetch() 메소드는 네트워크에서 리소스를 가져오는 프로세스를 시작하여 response 응답을 사용할 수 있게 되면 이행된 promise 약속을 return 반환합니다.
+    
+- jsonplaceholder
+    
+    JSONPlaceholder는 가짜 데이터가 필요할 때마다 사용할 수 있는 무료 온라인 REST API
+    
+    posts, users, photos 등 여러 가지 가짜 데이터를 가져올 수 있음
+    
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+<aside>
+📌 React.memo 적용
 
-### `npm test`
+</aside>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- react는 먼저 컴포넌트를 렌더링 한 뒤, 이전에 렌더링 딘 결과와 비교하여 DOM 업데이트를 결정
+    
+    만약 렌더링 결과가 이전과 다르다면, react는 DOM을 업데이트 함
+    
+- 이 과정에서 만약 컴포넌트가 react.memo()로 둘러 쌓여 있다면, react는 컴포넌트를 렌더링하고 결과를  메모이징함 > 다음 렌더링이 일어날 때 렌더링하는 컴포넌트의 props가 같다면, react는 메모이징 된 내용을 재사용
 
-### `npm run build`
+❓메모제이션 (Memoization) : memoization은 주어진 입력값에 대한 결과를 저장함으로써 같은 입력값에 대해 함수가 한 번만 실행되는 것을 보장
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+React.memo 적용은 간단하게 원하는 컴포넌트를 감싸주면 됨
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+적용 후 profiler 확인 시 렌더링이 필요하지 않은 List, ListItem 컴포넌트는 렌더링이 안 되는 걸 확인 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![Untitled](React-App%20%E1%84%89%E1%85%A5%E1%86%BC%E1%84%82%E1%85%B3%E1%86%BC%E1%84%80%E1%85%A2%E1%84%89%E1%85%A5%E1%86%AB%20a254848ce528475286175149555ab049/Untitled%202.png)
 
-### `npm run eject`
+- B컴포넌트의 렌더링 속도가 향상한 것을 볼 수 있음
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+React Memo 사용을 지양해야하는 상황
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- 렌더링 될 때 props가 다른 경우가 대부분인 컴포넌트를 생각하면 메모이제이션 기법의 이점을 얻기 힘듬
+- props가 자주 변하는 컴포넌트를 react.memo로 래핑 할지라도, react는 두 가지 작업을 리 렌더링 할 때마다 수행함
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+📌 리액트에서 렌더링 성능을 최적화 위해선 react 컴포넌트를 분리하며, react.memo 를 사용하면 됨. 또한 react.memo 사용은 항상 좋은 것은 아니기에 profiler를 이용해서 성능상 이점이 있는지 확인 후 사용
